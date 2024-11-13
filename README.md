@@ -7,6 +7,21 @@ This component provides a social login and email authentication functionality. I
 npm install @indiebold/authkit
 ```
 
+```javascript
+import { createApp } from 'vue'
+import AuthKit from '@indiebold/authkit'
+
+const app = createApp(App);
+
+
+app.use(AuthKit, {
+    supabase: {
+        url: 'your_supabase_url',
+        key: 'your_supabase_key'
+    }
+})
+```
+
 ## Table of Contents
 1. [Props](#props)
 2. [Events](#events)
@@ -51,6 +66,8 @@ An object to customize input labels and the UI type (either 'login' or 'signup')
 
 The component uses inline styles for layout and button design. You can override these styles by passing custom classes via the `classNames` prop.
 
+
+
 ---
 
 ## Usage
@@ -83,14 +100,22 @@ The component uses inline styles for layout and button design. You can override 
 import { AuthFlow } from '@indiebold/authkit';
 
 const handleSuccess = (data: any) => {
-  console.log('Login Successful:', data);
+  console.log('Successful:', data);
 };
 
 const handleError = (error: string) => {
   console.error('Error:', error);
 };
 </script>
+
+<style>
+  /* Import fontawesome if you intend to use social logins */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+</style>
 ```
+
+
+
 
 
 
@@ -134,7 +159,7 @@ An object containing configuration options.
 import { PasswordRecovery } from '@indiebold/authkit';
 
 const handleSuccess = (data: any) => {
-  console.log('Login Successful:', data);
+  console.log('Successful:', data);
 };
 
 const handleError = (error: string) => {
